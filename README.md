@@ -1,7 +1,7 @@
 PROGRAMA QUE EJECUTA EL ALGORITMO DE LIANG-BARSKY DE RECORTE DE LINEAS
 AUTOR: NOE MARTINEZ NAREDO
 
-ESTE PROGRAMA FUE ESCRITO EN PYTHON 3.7, SI NO SE CUENTA CON ÉSTE O CON UNO SUFICIENTE COMPATIBILIDAD SERÁ NECESARIO REALIZAR EL PROCEDIMIENTO DE INSTALACIÓN.
+ESTE PROGRAMA FUE ESCRITO EN PYTHON 2.7.1, PERO SE TUVO CONSIDERACIÓN DE COMPATIBILIDAD PARA VERSIONES POSTERIORES.
 
 	INSTALACIÓN
 		WINDOWS:
@@ -41,4 +41,4 @@ FUNCIONAMIENTO:
 	•	Se pedirá también los valores de largo y alto (el programa no avanzará si el formato es incorrecto).
 	(el programa no avanzará si el formato es incorrecto).
 	•	El programa leerá las líneas del archivo lineas.txt y analizará si hay puntos de recorte.
-	•	El programa desplegará los resultados del análisis línea por línea.
+	•	El programa desplegará los resultados del análisis, sus intersecciciones con la ventana línea por línea.

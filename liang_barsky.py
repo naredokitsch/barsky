@@ -1,3 +1,8 @@
+# -*- coding: latin-1 -*-
+
+#PROGRAMA QUE REALIZA EL ALGORITMO DE LIANG-BARSKY PARA EL RECORTE DE LÍNEAS
+#AUTOR: MARTÍNEZ NAREDO NOÉ
+
 import re
 import os
 import sys
@@ -44,9 +49,12 @@ def obtener_lineas():
 def obtener_ventana():
 	global window
 
-	punto_inferior = input("Ingresa el punto inferior izquierdo de la ventana. Solo se aceptan valores positivos (x,y): ")
+	try: input = raw_input
+	except NameError: pass
+	
+	punto_inferior = input("Ingresa el punto inferior izquierdo de la ventana. Sólo se aceptan valores positivos (x,y): ")
 	while (not patron_punto_inferior.match(punto_inferior)):
-		punto_inferior = input("No es un valor valido. Ingrese nuevamente: ")
+		punto_inferior = input("No es un valor válido. Ingrese nuevamente: ")
 
 	tmp_window = punto_inferior.split(',')
 	window[0] = float(tmp_window[0].replace(" ","").replace("(",""))
@@ -54,12 +62,12 @@ def obtener_ventana():
 
 	largo_ventana = input("Introduce el valor del largo de la ventana: ")
 	while (not patron_coordenanda.match(largo_ventana)):
-		largo_ventana = input("No es un valor valido. Ingrese nuevamente: ")
+		largo_ventana = input("No es un valor válido. Ingrese nuevamente: ")
 	window[2] = float(largo_ventana.replace(" ","")) + window[0]
 
 	alto_ventana = input("Introduce el valor de alto de la ventana: ")	
 	while (not patron_coordenanda.match(alto_ventana)):
-		alto_ventana = input("No es un valor valido. Ingrese nuevamente: ")
+		alto_ventana = input("No es un valor válido. Ingrese nuevamente: ")
 	window[3] = float(alto_ventana.replace(" ","")) + window[1]
 
 	print ("\n   VENTANA:\n   punto inferior izquierdo ( " + str(window[0]) + " , " + str(window[1]) +" )\n   punto superior derecho ( " + str(window[2]) + " , " + str(window[3]) + " )")
