@@ -1,6 +1,7 @@
 # -*- coding: latin-1 -*-
 
 #PROGRAMA QUE REALIZA EL ALGORITMO DE LIANG-BARSKY PARA EL RECORTE DE LÍNEAS
+#Se omitieron acentos por compatibilidad
 #AUTOR: MARTÍNEZ NAREDO NOÉ
 
 import re
@@ -15,10 +16,10 @@ patron_coordenanda = re.compile(' *\d+\.?\d* *')
 patron_linea = re.compile('\d+\.?\d* \d+\.?\d* \d+\.?\d* \d+\.?\d*')
 
 def inicio():
-	print("ESTE PROGRAMA REALIZA EL ALGORITMO DE LIANG-BARSKY PARA EL RECORTE DE LÍNEAS")
+	print("ESTE PROGRAMA REALIZA EL ALGORITMO DE LIANG-BARSKY PARA EL RECORTE DE LINEAS")
 
 def termina_programa():
-	print("El programa terminará")
+	print("El programa terminara")
 	sys.exit()
 
 def obtener_lineas():
@@ -36,25 +37,25 @@ def obtener_lineas():
 					lineas_tmp[3] = float(lineas_tmp[3])
 					lineas.append(lineas_tmp)
 				else:
-					print("Una o más lineas en el archivo no cumplen con el formato")
+					print("Una o mas lineas en el archivo no cumplen con el formato")
 					termina_programa()
 			#print(lineas)
 		else:
-			print("El archivo lineas.txt se encuentra vacío")
+			print("El archivo lineas.txt se encuentra vacio")
 			termina_programa()
 	else:
-		print("No se encontró el archivo lineas.txt")
+		print("No se encontro el archivo lineas.txt")
 		termina_programa()
 
 def obtener_ventana():
 	global window
 
-	try: input = raw_input
-	except NameError: pass
+	#try: input = raw_input
+	#except NameError: pass
 	
-	punto_inferior = input("Ingresa el punto inferior izquierdo de la ventana. Sólo se aceptan valores positivos (x,y): ")
+	punto_inferior = input("Ingresa el punto inferior izquierdo de la ventana. Solo se aceptan valores positivos (x,y): ")
 	while (not patron_punto_inferior.match(punto_inferior)):
-		punto_inferior = input("No es un valor válido. Ingrese nuevamente: ")
+		punto_inferior = input("No es un valor valido. Ingrese nuevamente: ")
 
 	tmp_window = punto_inferior.split(',')
 	window[0] = float(tmp_window[0].replace(" ","").replace("(",""))
@@ -62,12 +63,12 @@ def obtener_ventana():
 
 	largo_ventana = input("Introduce el valor del largo de la ventana: ")
 	while (not patron_coordenanda.match(largo_ventana)):
-		largo_ventana = input("No es un valor válido. Ingrese nuevamente: ")
+		largo_ventana = input("No es un valor valido. Ingrese nuevamente: ")
 	window[2] = float(largo_ventana.replace(" ","")) + window[0]
 
 	alto_ventana = input("Introduce el valor de alto de la ventana: ")	
 	while (not patron_coordenanda.match(alto_ventana)):
-		alto_ventana = input("No es un valor válido. Ingrese nuevamente: ")
+		alto_ventana = input("No es un valor valido. Ingrese nuevamente: ")
 	window[3] = float(alto_ventana.replace(" ","")) + window[1]
 
 	print ("\n   VENTANA:\n   punto inferior izquierdo ( " + str(window[0]) + " , " + str(window[1]) +" )\n   punto superior derecho ( " + str(window[2]) + " , " + str(window[3]) + " )")
@@ -88,7 +89,7 @@ def no_clip_point():
 	return cadena
 
 def analisis_inferior( linea ):
-	con_limite = "   Con límite inferior  :"
+	con_limite = "   Con limite inferior  :"
 	u = (window[1] - linea[1] ) / ( linea[3] - linea[1] )
 	if u >= 0 and u <= 1:
 		x_clip = linea[0] + u * ( linea[2] - linea[0] )
@@ -100,7 +101,7 @@ def analisis_inferior( linea ):
 		print(con_limite + no_clip_point())
 
 def analisis_superior( linea ):
-	con_limite = "   Con límite superior  :"
+	con_limite = "   Con limite superior  :"
 	u = (window[3] - linea[1] ) / ( linea[3] - linea[1] )
 	if u >= 0 and u <= 1:
 		x_clip = linea[0] + u * ( linea[2] - linea[0] )
@@ -112,7 +113,7 @@ def analisis_superior( linea ):
 		print(con_limite + no_clip_point())
 
 def analisis_izquierdo( linea ):
-	con_limite = "   Con límite izquierdo :"
+	con_limite = "   Con limite izquierdo :"
 	u = (window[0] - linea[0] ) / ( linea[2] - linea[0] )
 	if u >= 0 and u <= 1:
 		y_clip = linea[1] + u * ( linea[3] - linea[1] )
@@ -124,7 +125,7 @@ def analisis_izquierdo( linea ):
 		print(con_limite + no_clip_point())
 
 def analisis_derecho( linea ):
-	con_limite = "   Con límite derecho   :"
+	con_limite = "   Con limite derecho   :"
 	u = (window[2] - linea[0] ) / ( linea[2] - linea[0] )
 	if u >= 0 and u <= 1:
 		y_clip = linea[1] + u * ( linea[3] - linea[1] )

@@ -1,7 +1,7 @@
 PROGRAMA QUE EJECUTA EL ALGORITMO DE LIANG-BARSKY DE RECORTE DE LINEAS
 AUTOR: NOE MARTINEZ NAREDO
 
-ESTE PROGRAMA FUE ESCRITO EN PYTHON 2.7.1, PERO SE TUVO CONSIDERACIÓN DE COMPATIBILIDAD PARA VERSIONES POSTERIORES.
+ESTE PROGRAMA FUE ESCRITO EN PYTHON 3.6, Si se tiene una versión 2.X se deberán sustituir las funciones "input" por "raw_input"
 
 	INSTALACIÓN
 		WINDOWS:
@@ -12,6 +12,7 @@ ESTE PROGRAMA FUE ESCRITO EN PYTHON 2.7.1, PERO SE TUVO CONSIDERACIÓN DE COMPAT
 			Para fines de facilitar la intalación haremos uso de un manejador de paquetes.
 			•	Abrir la terminal. Pegar y ejecutar la siguiente línea
 					/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+					brew install python3.7
 				Puede pedir contraseña para hacer la instalación
 		DEBIAN/UBUNTU:
 			•	Abrir la terminal. Pegar y ejecutar las siguientes líneas
