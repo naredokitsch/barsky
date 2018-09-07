@@ -49,9 +49,6 @@ def obtener_lineas():
 
 def obtener_ventana():
 	global window
-
-	#try: input = raw_input
-	#except NameError: pass
 	
 	punto_inferior = input("Ingresa el punto inferior izquierdo de la ventana. Solo se aceptan valores positivos (x,y): ")
 	while (not patron_punto_inferior.match(punto_inferior)):
